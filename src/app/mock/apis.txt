@@ -1,0 +1,49 @@
+//********************************* HEADLINES*************************************************
+
+// by country
+https://newsapi.org/v2/top-headlines?country=de&apiKey=068b217c31134ba594369385269369ec
+
+//category
+https://newsapi.org/v2/top-headlines?category=business&apiKey=068b217c31134ba594369385269369ec
+
+// By country and category
+https://newsapi.org/v2/top-headlines?country=de&category=business&apiKey=068b217c31134ba594369385269369ec
+
+// key word search
+https://newsapi.org/v2/top-headlines?q=trump&apiKey=068b217c31134ba594369385269369ec
+
+
+
+// source
+https://newsapi.org/v2/top-headlines?sources=bbc-news&apiKey=068b217c31134ba594369385269369ec
+
+//multiple sources
+https://newsapi.org/v2/top-headlines?sources=bbc-news,cnn&apiKey=068b217c31134ba594369385269369ec
+
+//key word search in single source
+https://newsapi.org/v2/top-headlines?sources=bbc-sport&apiKey=068b217c31134ba594369385269369ec
+
+//key word search in multiple source
+https://newsapi.org/v2/top-headlines?sources=bbc-sport,espn&apiKey=068b217c31134ba594369385269369ec
+
+
+//************************************************************************
+//********************************SOURCES*********************************
+//************************************************************************
+
+
+// All sources
+https://newsapi.org/v2/top-headlines/sources?apiKey=068b217c31134ba594369385269369ec
+
+// sources for category
+https://newsapi.org/v2/top-headlines/sources?category=business&apiKey=068b217c31134ba594369385269369ec
+
+Archiveeeeeee
+
+
+
+//EVERYTHINGGGGGGGGGG
+https://newsapi.org/v2/everything?q=apple&sortBy=&language=&domains=&pageSize=20&page=2&apiKey=68cd0494fa2e4420b71918442e9fa34d
+
+1. floating nav bar for suggestions of category with search bar and language selection with menu bar beside search and sort option
+2. search with domain 

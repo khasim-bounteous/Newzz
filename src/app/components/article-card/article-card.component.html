@@ -1,0 +1,19 @@
+
+<mat-menu #menu class="text-center">
+    <button *ngIf="save; else savetag" (click)="deleteArticle()">Delete</button>
+    <ng-template #savetag><button (click)="saveArticle()">Save</button></ng-template>
+</mat-menu>
+
+<div class="relative">
+    <div class="absolute top-0 text-white right-0">
+        <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+            <mat-icon>more_vert</mat-icon>
+        </button>
+    </div>
+    <img [src]="article.urlToImage" alt="Article Image" class="w-full h-48 object-cover">
+    <div class="p-4">
+        <h2 class="text-lg font-semibold mb-2">{{ article.title }}</h2>
+        <p class="text-gray-600 mb-4">{{ article.description }}</p>
+        <a [href]="article.url" target="_blank" class="text-blue-500 hover:underline">Read more</a>
+    </div>
+</div>
