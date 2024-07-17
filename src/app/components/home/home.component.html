@@ -1,0 +1,49 @@
+<section class="container mx-auto h-full flex items-center justify-between">
+    <div class="text-slate-200 mx-10 leading-relaxed w-1/2 text-4xl p-5">
+        Stay informed with the latest global headlines—your gateway to the world's breaking news and trending stories!
+    </div>
+    <div class="w-1/2 flex ">
+        <swiper-container class=" mySwiper pt-20" effect="cards" grab-cursor="true">
+            <swiper-slide ><img src="../../../assets/news3.jpg" alt=""></swiper-slide>
+            <swiper-slide><img src="../../../assets/news4.jpg" alt=""></swiper-slide>
+            <swiper-slide><img src="../../../assets/news2.jpg" alt=""></swiper-slide>
+            <swiper-slide><img src="../../../assets/news1.jpg" alt=""></swiper-slide>
+        </swiper-container>
+    </div>
+</section>
+<hr>
+<section class="py-20 px-20 headlines-con">
+    <h1 class="text-center text-4xl text-white mb-10">Current Headlines</h1>
+    <ng-container *ngIf="headlines$ | async as headines">
+        <div *ngIf="headines.articles.length > 0; else noArticles">
+            <div class="container mx-auto p-4">
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                    <div *ngFor="let headline of headines.articles.slice(0,4)" class="bg-gray-900 overflow-hidden hover:p-2 cursor-pointer">
+                        <app-headline-card [headlines]="headline" [save]="true"></app-headline-card>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <ng-template #noArticles>
+          <p>No saved articles.</p>
+        </ng-template>
+      </ng-container>
+</section>
+<hr>
+<section class="py-20 px-20 articles-con">
+    <h1 class="text-center text-5xl text-white mb-10">Articles</h1>
+    <ng-container *ngIf="articles$ | async as articles">
+        <div *ngIf="articles.articles.length > 0; else noArticles">
+            <div class="container mx-auto p-4">
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                    <div *ngFor="let article of articles.articles.slice(0,4)" class="bg-gray-900 overflow-hidden">
+                        <app-article-card [article]="article" [save]="true"></app-article-card>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <ng-template #noArticles>
+          <p>No saved articles.</p>
+        </ng-template>
+      </ng-container>
+</section>

@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -16,7 +16,13 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HeadlineCardComponent } from './components/headline-card/headline-card.component';
 import { WorldNewzComponent } from './components/world-newz/world-newz.component';
 import { SavedArticlesComponent } from './components/saved-articles/saved-articles.component';
-
+import { LoginComponent } from './components/login/login.component';
+import { SignupComponent } from './components/signup/signup.component';
+import { AuthInterceptorService } from './interceptors/auth-interceptor.service';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { register } from 'swiper/element/bundle';
+// register Swiper custom elements
+register();
 
 @NgModule({
   declarations: [
@@ -30,7 +36,9 @@ import { SavedArticlesComponent } from './components/saved-articles/saved-articl
     SourceHeadlinesComponent,
     HeadlineCardComponent,
     WorldNewzComponent,
-    SavedArticlesComponent
+    SavedArticlesComponent,
+    LoginComponent,
+    SignupComponent
   ],
   imports: [
     BrowserModule,
@@ -38,11 +46,17 @@ import { SavedArticlesComponent } from './components/saved-articles/saved-articl
     SharedModule,
     MaterialModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
   ],
   providers: [
-    provideAnimationsAsync()
+    provideAnimationsAsync(),
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptorService,
+      multi: true
+    }
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class AppModule { }

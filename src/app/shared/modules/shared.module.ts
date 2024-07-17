@@ -15,7 +15,7 @@ import { AppState } from '../global/App.state';
     StoreModule.forRoot(AppState),
     StoreDevtoolsModule.instrument({maxAge: 25, logOnly: !isDevMode()}),
     EffectsModule.forRoot([NewzEffect]),
+  ],
 
-  ]
 })
 export class SharedModule { }

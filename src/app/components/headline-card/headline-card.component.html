@@ -1,5 +1,5 @@
 
-  <mat-menu #menu class="text-center">
+<mat-menu #menu class="text-center">
       <button *ngIf="save; else savetag" (click)="deleteHeadline()">Delete</button>
       <ng-template #savetag><button (click)="saveHeadline()">Save</button></ng-template>
   </mat-menu>
@@ -11,7 +11,7 @@
     </div>
     <img [src]="headlines.urlToImage" alt="Article Image" class="w-full h-48 object-cover">
     <div class="p-4">
-        <h2 class="text-lg font-semibold mb-2">{{ headlines.title }}</h2>
+        <h2 class="text-lg text-slate-600 font-semibold mb-2">{{ headlines.title }}</h2>
         <p class="text-gray-600 mb-4">{{ headlines.description }}</p>
         <a [href]="headlines.url" target="_blank" class="text-blue-500 hover:underline">Read more</a>
     </div>

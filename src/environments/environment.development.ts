@@ -3,6 +3,7 @@ export const environment = {
     apiEndPointNewz: 'https://newsapi.org/v2/everything',
     apiEndPointHeadlines: 'https://newsapi.org/v2/top-headlines/',
     apiEndPoint: 'http://localhost:3000/headLines',
+    authApiEndPoint: 'https://api.escuelajs.co/api/v1',
     API_KEY: 'ef1da8210d77447bb49f325d087f8aee'
 
 };
