@@ -3,7 +3,7 @@
       <button *ngIf="save; else savetag" (click)="deleteHeadline()">Delete</button>
       <ng-template #savetag><button (click)="saveHeadline()">Save</button></ng-template>
   </mat-menu>
-<div class="relative">
+<div class="relative bg-gray-900">
     <div class="absolute top-0 text-white right-0">
         <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
             <mat-icon>more_vert</mat-icon>
@@ -11,7 +11,7 @@
     </div>
     <img [src]="headlines.urlToImage" alt="Article Image" class="w-full h-48 object-cover">
     <div class="p-4">
-        <h2 class="text-lg text-slate-600 font-semibold mb-2">{{ headlines.title }}</h2>
+        <h2 class="text-lg text-slate-400 font-semibold mb-2">{{ headlines.title }}</h2>
         <p class="text-gray-600 mb-4">{{ headlines.description }}</p>
         <a [href]="headlines.url" target="_blank" class="text-blue-500 hover:underline">Read more</a>
     </div>

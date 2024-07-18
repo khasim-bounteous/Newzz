@@ -12,19 +12,17 @@
     z-index: -2; 
 }
 
-// .articles-con{
-//     background-color: rgb(249, 245, 245);
-// }
-
-// .headlines-con{
-//     background-color: rgb(245, 247, 249);
-// }
 .articles-con{
-    background-color: rgb(2 2 2 / 46%);
+    background-color: rgba(17, 24, 39, 0.927)
+
 }
 
+
 .headlines-con{
-    background-color: rgba(2, 2, 2, 0.342);
+    // background-color: rgba(2, 2, 2, 0.683);
+    background-color: rgba(17, 24, 39, 0.927)
+
+
 }
 
 swiper-container {
@@ -47,3 +45,4 @@ swiper-container {
     width: fit-content;
     background-color: rgba(0, 0, 0, 0.297);
   }
+

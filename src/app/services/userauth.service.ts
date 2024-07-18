@@ -1,6 +1,6 @@
 import { HttpClient, HttpHeaders, HttpRequest } from '@angular/common/http';
 import { Inject,Injectable } from '@angular/core';
-import { Login } from '../interface/userauth';
+import { Login, SignUp } from '../interface/userauth';
 import { environment } from '../../environments/environment.development';
 import { localStorageToken } from '../javascriptapis/localstorage.token';
 import { Observable, catchError, delay, of, switchMap, throwError } from 'rxjs';
@@ -43,6 +43,10 @@ export class UserauthService {
 
   userLogin(loginDetails: Login){
     return this.http.post<any>(`${environment.authApiEndPoint}/auth/login`,loginDetails)
+  }
+
+  userSingup(signupDetails: SignUp){
+    return this.http.post<any>(`${environment.authApiEndPoint}/users`,signupDetails)
   }
 
   userLogout():void{

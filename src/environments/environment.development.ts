@@ -4,7 +4,7 @@ export const environment = {
     apiEndPointHeadlines: 'https://newsapi.org/v2/top-headlines/',
     apiEndPoint: 'http://localhost:3000/headLines',
     authApiEndPoint: 'https://api.escuelajs.co/api/v1',
-    API_KEY: 'ef1da8210d77447bb49f325d087f8aee'
+    API_KEY: '68cd0494fa2e4420b71918442e9fa34d'
 
 };
 

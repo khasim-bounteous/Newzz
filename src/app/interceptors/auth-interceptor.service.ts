@@ -17,11 +17,11 @@ export class AuthInterceptorService implements HttpInterceptor{
         let authReq = req
      
 
-        if (req.url.includes('http://localhost:3000') || req.url.includes('https://newsapi.org/v2/')) {
+        if (req.url.includes('http://localhost:3000') || req.url.includes('https://api.escuelajs.co/api/v1/users/') || req.url.includes('https://api.escuelajs.co/api/v1/auth/login') || req.url.includes('https://newsapi.org/v2/')) {
             return next.handle(req);
         }
 
-        if(req.url.includes('https://api.escuelajs.co/api')){
+        else if(req.url.includes('https://api.escuelajs.co/api')){
             authReq = req.clone({
                 setHeaders: {
                     Authorization: `Bearer ${accessToken}`

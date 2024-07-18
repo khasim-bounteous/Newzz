@@ -1,27 +1,30 @@
-<div class="flex items-center justify-center gap-8 mt-10">
-  <mat-form-field appearance="fill" class="w-1/5">
-    <mat-label>Select Language</mat-label>
-    <mat-select [(ngModel)]="selectedLanguage" (selectionChange)="onLanguageChange()">
-      <mat-option *ngFor="let language of languages" [value]="language">{{ language }}</mat-option>
-    </mat-select>
-  </mat-form-field>
+<div class="bg-gray-900">
+  <div class="flex items-center justify-center gap-8 py-10">
+    <mat-form-field appearance="fill" class="w-1/5">
+      <mat-label>Select Language</mat-label>
+      <mat-select [(ngModel)]="selectedLanguage" (selectionChange)="onLanguageChange()">
+        <mat-option *ngFor="let language of languages" [value]="language">{{ language }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+    
+    <mat-form-field appearance="fill" class="w-1/5" *ngIf="selectedLanguage">
+      <mat-label>Select Sources</mat-label>
+      <mat-select [multiple]="true" [(ngModel)]="selectedSources" (ngModelChange)="onSourceChange()">
+        <mat-option *ngFor="let option of filteredSources" [value]="option.id">{{ option.name }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
   
-  <mat-form-field appearance="fill" class="w-1/5" *ngIf="selectedLanguage">
-    <mat-label>Select Sources</mat-label>
-    <mat-select [multiple]="true" [(ngModel)]="selectedSources" (ngModelChange)="onSourceChange()">
-      <mat-option *ngFor="let option of filteredSources" [value]="option.id">{{ option.name }}</mat-option>
-    </mat-select>
-  </mat-form-field>
-</div>
-
-<div class="container mx-auto p-4">
-  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-    <div *ngFor="let headLine of headLines" class="bg-white rounded-lg shadow-md overflow-hidden">
-      <app-headline-card [headlines]="headLine"></app-headline-card>
+  <div class="container mx-auto p-4">
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+      <div *ngFor="let headLine of headLines" class="overflow-hidden">
+        <app-headline-card [headlines]="headLine"></app-headline-card>
+      </div>
     </div>
   </div>
+  
+  
+  <mat-paginator [length]="totalResults" [pageIndex]="pageIndex" [pageSizeOptions]="[10, 20, 50]" [pageSize]="pageSize"  (page)="onPageChange($event)">
+  </mat-paginator>
+  
 </div>
-
-
-<mat-paginator [length]="totalResults" [pageIndex]="pageIndex" [pageSizeOptions]="[10, 20, 50]" [pageSize]="pageSize"  (page)="onPageChange($event)">
-</mat-paginator>

@@ -1,4 +1,4 @@
-<section class="container mx-auto h-full flex items-center justify-between">
+<section class="container mx-auto pt-10 h-full flex items-center justify-between">
     <div class="text-slate-200 mx-10 leading-relaxed w-1/2 text-4xl p-5">
         Stay informed with the latest global headlines—your gateway to the world's breaking news and trending stories!
     </div>
@@ -12,13 +12,13 @@
     </div>
 </section>
 <hr>
-<section class="py-20 px-20 headlines-con">
+<section class="py-20 px-20  headlines-con">
     <h1 class="text-center text-4xl text-white mb-10">Current Headlines</h1>
     <ng-container *ngIf="headlines$ | async as headines">
         <div *ngIf="headines.articles.length > 0; else noArticles">
             <div class="container mx-auto p-4">
                 <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-                    <div *ngFor="let headline of headines.articles.slice(0,4)" class="bg-gray-900 overflow-hidden hover:p-2 cursor-pointer">
+                    <div *ngFor="let headline of headines.articles.slice(0,4)" >
                         <app-headline-card [headlines]="headline" [save]="true"></app-headline-card>
                     </div>
                 </div>
@@ -36,7 +36,7 @@
         <div *ngIf="articles.articles.length > 0; else noArticles">
             <div class="container mx-auto p-4">
                 <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-                    <div *ngFor="let article of articles.articles.slice(0,4)" class="bg-gray-900 overflow-hidden">
+                    <div *ngFor="let article of articles.articles.slice(0,4)" class="home-article-card overflow-hidden">
                         <app-article-card [article]="article" [save]="true"></app-article-card>
                     </div>
                 </div>
