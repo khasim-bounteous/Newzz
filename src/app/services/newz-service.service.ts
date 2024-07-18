@@ -15,7 +15,7 @@ export class NewzServiceService {
 
   
   getArticles(query:string,sortBy:string,language:string,domains:string,pageSize:number,pageIndex:number):Observable<Articles>{
-
+    console.log("get articles")
     const params = new HttpParams()
       .set('q',query)
       .set('sortBy',sortBy)

@@ -28,7 +28,7 @@
 swiper-container {
     width: 400px;
     height: 600px;
-  }
+}
 
   swiper-slide {
     display: flex;
@@ -46,3 +46,11 @@ swiper-container {
     background-color: rgba(0, 0, 0, 0.297);
   }
 
+
+  @media (max-width: 768px) {
+    swiper-container {
+        width: 100%;
+        max-width: 230px;
+        height: 350px;
+    }
+}

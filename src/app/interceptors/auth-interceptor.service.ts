@@ -21,7 +21,7 @@ export class AuthInterceptorService implements HttpInterceptor{
             return next.handle(req);
         }
 
-        else if(req.url.includes('https://api.escuelajs.co/api')){
+        if(req.url.includes('https://api.escuelajs.co/api')){
             authReq = req.clone({
                 setHeaders: {
                     Authorization: `Bearer ${accessToken}`
@@ -35,8 +35,8 @@ export class AuthInterceptorService implements HttpInterceptor{
                     }
                     const errorMessage = `Error: ${error.error.message}`; 
                     alert("session expired")
-                    this.authService.userLogout()
-                    this.router.navigate(["/login"])
+                    // this.authService.userLogout()
+                    // this.router.navigate(["/login"])
                     return throwError(() => errorMessage);
                 })
             )

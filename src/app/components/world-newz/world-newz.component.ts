@@ -39,6 +39,7 @@ export class WorldNewzComponent implements OnInit{
     );
 
     this.articles$.subscribe(item => {
+      console.log("hello world")
       this.articles = item.articles;
       this.language = item.language;
       this.sortBy = item.sortBy;

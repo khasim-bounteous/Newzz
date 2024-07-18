@@ -1,22 +1,47 @@
 <nav class="bg-gray-900 shadow-lg text-cyan-500 relative py-3">
-    <div class="max-w-6xl mx-auto px-4 ">
-      <div class="flex justify-center  items-center h-16 ">
-        <div class="absolute top-1.5 left-5">
-          <a href="#" class="flex items-center">
-            <img src="../../../assets/logo.webp" alt="Logo" class="h-16">
-            <span class="ml-2 text-xl font-bold text-cyan-400">CATCHME</span>
-          </a>
-        </div>
-  
-        <div class="hidden md:flex text-md">
-          <a routerLink="" class="ml-4 px-3 py-2  font-semibold  hover:text-cyan-600">Home</a>
-          <a routerLink="headlines" class="ml-4 px-3 py-2 font-semibold  hover:text-cyan-600">Headlines</a>
-          <a routerLink="articles" class="ml-4 px-3 py-2 font-semibold  hover:text-cyan-600">Articles</a>
-          <a routerLink="source-headlines" class="ml-4 px-3 py-2  font-semibold  hover:text-cyan-600">Source-Headlines</a>
-          <a routerLink="saved-articles" class="ml-4 px-3 py-2  font-semibold  hover:text-cyan-600">Saved-articles</a>
-        </div>
-  
+    <div class="flex justify-center items-center h-16">
+      <div class="absolute top-3 left-2 flex items-center">
+        <a href="#" class="flex items-center">
+          <img src="../../../assets/logo.webp" alt="Logo" class="h-16">
+          <span class="ml-2 text-xl font-bold text-cyan-400">CATCHME</span>
+        </a>
+      </div>
+      <div class="md:hidden absolute top-8 right-2" *ngIf="!isMenuOpen">
+        <button (click)="isMenuOpen = true" class="text-cyan-500 hover:text-cyan-400 focus:outline-none">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+          </svg>
+        </button>
+      </div>
+      <div class="hidden md:flex text-md">
+        <a routerLink="" class="ml-4 px-3 py-2 font-semibold hover:text-cyan-600">Home</a>
+        <a routerLink="headlines" class="ml-4 px-3 py-2 font-semibold hover:text-cyan-600">Headlines</a>
+        <a routerLink="source-headlines" class="ml-4 px-3 py-2 font-semibold hover:text-cyan-600">Source-Headlines</a>
+        <a routerLink="articles" class="ml-4 px-3 py-2 font-semibold hover:text-cyan-600">Articles</a>
+        <a routerLink="saved-articles" class="ml-4 px-3 py-2 font-semibold hover:text-cyan-600">Saved-articles</a>
+      </div>
+      <div class="hidden md:flex">
+        <button *ngIf="userLoggedIn" class="px-3 absolute h-6 top-6 right-2 py-2 font-semibold hover:text-cyan-600" (click)="onLogout()">Logout</button>
+        <a *ngIf="!userLoggedIn" routerLink="/login" class="px-3 absolute h-6 top-6 right-2 py-2 font-semibold hover:text-cyan-600">Login</a>
       </div>
     </div>
-  </nav>
-  
+
+  <!-- Sidebar for Mobile -->
+  <div [ngClass]="{'translate-x-0': isMenuOpen, 'translate-x-full': !isMenuOpen}" class="md:hidden fixed top-0  z-40 right-0 w-64 h-full bg-gray-900 text-cyan-500 shadow-lg transform transition-transform duration-300 ease-in-out">
+    <div class="flex justify-end p-4">
+      <button (click)="isMenuOpen = false" class="text-cyan-500 hover:text-cyan-400 focus:outline-none">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+        </svg>
+      </button>
+    </div>
+    <div class="flex flex-col items-start p-4 space-y-4">
+      <a routerLink="" class="px-3 py-2 font-semibold hover:text-cyan-600 w-full text-left">Home</a>
+      <a routerLink="headlines" class="px-3 py-2 font-semibold hover:text-cyan-600 w-full text-left">Headlines</a>
+      <a routerLink="articles" class="px-3 py-2 font-semibold hover:text-cyan-600 w-full text-left">Articles</a>
+      <a routerLink="source-headlines" class="px-3 py-2 font-semibold hover:text-cyan-600 w-full text-left">Source-Headlines</a>
+      <a routerLink="saved-articles" class="px-3 py-2 font-semibold hover:text-cyan-600 w-full text-left">Saved-articles</a>
+      <button class="px-3 py-2 font-semibold hover:text-cyan-600 w-full text-left">Logout</button>
+    </div>
+  </div>
+</nav>

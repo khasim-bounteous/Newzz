@@ -15,6 +15,7 @@ export class HeadlinesService {
 
   //********top headlines by country***********
   getHeadlines(country: string, category: string, pageIndex: number, pageSize: number): Observable<any> {
+    console.log("headling")
     const params = new HttpParams()
       .set('country', country)
       .set('category', category)
@@ -28,6 +29,7 @@ export class HeadlinesService {
 
 
   getNewzHeadlinesBySource(sources: SourceModel[],pageIndex:number,pageSize:number):Observable<any>{
+    console.log("get news headline by source")
     const sourcesParam = sources.join(',');
     const params = new HttpParams()
       .set('sources', sourcesParam)

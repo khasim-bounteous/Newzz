@@ -27,7 +27,7 @@ export class HeadlinesComponent implements OnInit, OnDestroy {
   category: string = 'general';
   pageIndex: number = 0;
   pageSize: number = 20;
-  categories = ["general","health","science","technology","sports"];
+  categories = ["general","business","sports","science","technology","health",];
 
   ngOnInit(): void {
     this.headLines$ = this.store.select(getHeadlines).pipe(

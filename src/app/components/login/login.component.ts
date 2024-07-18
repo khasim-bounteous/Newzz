@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { Login } from '../../interface/userauth';
 import { UserauthService } from '../../services/userauth.service';
 import { localStorageToken } from '../../javascriptapis/localstorage.token';
+import { SnackbarService } from '../../services/snackbar.service';
 
 @Component({
   selector: 'app-login',
@@ -19,6 +20,7 @@ export class LoginComponent {
 
   constructor(
       private userAuth: UserauthService,
+      private snackbarService: SnackbarService,
       private route: Router
     ){}
 
@@ -35,13 +37,14 @@ export class LoginComponent {
         next: data=>{
           localStorage.setItem("access_token",data.access_token)
           localStorage.setItem("refresh_token",data.refresh_token)
+          this.snackbarService.showSnackbarBottom("Welcome backk!!!",'top','end',7000)
           this.route.navigate(["newz"])
         },
-        error: ()=>alert("wrong password")
+        error: ()=>this.snackbarService.showSnackbarBottom("Fill the details correctly",'center','top',3000)
       })
     }
     else {
-      alert("fill the details correctly")
+      this.snackbarService.showSnackbarBottom("Wrong password",'top','center',3000)
     }
   }
 }

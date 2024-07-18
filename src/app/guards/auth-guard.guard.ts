@@ -1,20 +1,22 @@
-import { inject } from '@angular/core';
+import { Inject, inject } from '@angular/core';
 import { CanActivateFn,Router,ActivatedRouteSnapshot,RouterStateSnapshot, Route } from '@angular/router';
 import { map } from 'rxjs/operators';
 import { UserauthService } from '../services/userauth.service';
+import { SnackbarService } from '../services/snackbar.service';
 
-export const AuthGuard: CanActivateFn = (route:ActivatedRouteSnapshot, state:RouterStateSnapshot) => {
+export const AuthGuard: CanActivateFn = () => {
   
-  const router:Router = inject(Router)
   const authService = inject(UserauthService)
+  const snackbarService = inject(SnackbarService)
+
   return authService.getUserProfile().pipe(
     map(userObject => {
       if (userObject && userObject.id) {
         return true;
       } else {
-        router.navigate(['/login']);
+        snackbarService.showSnackbarBottom('Login to save the articles', 'top', 'right');
         return false;
       }
-    })
+    })    
   );
 };

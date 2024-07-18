@@ -22,7 +22,7 @@ const routes: Routes = [
     children: [
       {
         path: '',
-        component: HomeComponent
+        component: HomeComponent,
       },
       {
         path: 'headlines',
@@ -30,19 +30,18 @@ const routes: Routes = [
       },
       {
         path: 'source-headlines',
-        component: SourceHeadlinesComponent
+        component: SourceHeadlinesComponent,
       },
       {
         path: 'articles',
         component: WorldNewzComponent,
-        canActivate: [AuthGuard]
       },
       {
         path: 'saved-articles',
         component: SavedArticlesComponent,
+        canActivate: [AuthGuard]
       }
     ],
-    canActivate: [AuthGuard]
   },
   {
     path: 'login',

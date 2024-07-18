@@ -24,11 +24,11 @@ export class ArticleCardComponent {
   saveArticle() {
     this.articleService.saveArtcile(this.article).subscribe(
       () => {
-        this.snackbarService.showSnackbarBottom('Article saved successfully', 5000);
+        this.snackbarService.showSnackbarBottom('Article saved successfully',"bottom","center" ,3000);
         this.store.dispatch(loadSavedArticles())
       },
       error => {
-        this.snackbarService.showSnackbarBottom('Failed to save article', 5000);
+        this.snackbarService.showSnackbarBottom('Failed to save article',"top","end", 3000);
         console.error('Error saving article:', error);
       }
     );
@@ -38,11 +38,11 @@ export class ArticleCardComponent {
   deleteArticle(){
     this.articleService.deleteSavedArticle(this.article.id).subscribe(
       () => {
-        this.snackbarService.showSnackbarBottom('Article  successfully', 5000);
+        this.snackbarService.showSnackbarBottom('Article deleted successfully',"bottom","center", 3000);
         this.store.dispatch(loadSavedArticles())
       },
       error => {
-        this.snackbarService.showSnackbarBottom('Failed to save article', 5000);
+        this.snackbarService.showSnackbarBottom('Failed to delete article',"top","end", 3000);
         console.error('Error saving article:', error);
       }
     )

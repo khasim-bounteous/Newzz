@@ -5,6 +5,7 @@ import { environment } from '../../environments/environment.development';
 import { localStorageToken } from '../javascriptapis/localstorage.token';
 import { Observable, catchError, delay, of, switchMap, throwError } from 'rxjs';
 import { Router } from '@angular/router';
+import { SnackbarService } from './snackbar.service';
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +15,8 @@ export class UserauthService {
   constructor(
     private http: HttpClient,
     @Inject(localStorageToken) private storage: Storage,
-    private router: Router
+    private router: Router,
+    private snackbarService: SnackbarService,
   ) { }
 
   getAccessToken(): string | null {
@@ -28,7 +30,8 @@ export class UserauthService {
   refreshToken():Observable<any>{
     const refreshToken = this.getRefreshToken();
     if(!refreshToken){
-      this.router.navigate(['/login'])
+      this.snackbarService.showSnackbarBottom('User session expired. please login save News Articles','top','center',5000);
+      return throwError('No refresh token available');
     }
 
     return this.http.post(`${environment.authApiEndPoint}/auth/refresh-token`, {
@@ -72,9 +75,8 @@ export class UserauthService {
         return this.http.request(newRequest)
       }),
       catchError(err=>{
-        
-        this.userLogout();
-        return this.http.request(originalRequest)
+        // this.userLogout();
+        return err
       })
     )
   }

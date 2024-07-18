@@ -25,11 +25,11 @@ export class HeadlineCardComponent {
   saveHeadline() {
     this.headLineService.saveHeadline(this.headlines).subscribe(
       () => {
-        this.snackbarService.showSnackbarBottom('Article saved successfully', 5000);
+        this.snackbarService.showSnackbarBottom('Headline saved successfully',"bottom","center", 3000);
         this.store.dispatch(loadSavedHeadlines())
       },
       error => {
-        this.snackbarService.showSnackbarBottom('Failed to save article', 5000);
+        this.snackbarService.showSnackbarBottom('Failed to delete headline',"top","end", 3000);
         console.error('Error saving article:', error);
       }
     );
@@ -38,11 +38,11 @@ export class HeadlineCardComponent {
   deleteHeadline(){
     this.headLineService.deleteSavedHeadline(this.headlines.id).subscribe(
       () => {
-        this.snackbarService.showSnackbarBottom('Headline deleted successfully', 5000);
+        this.snackbarService.showSnackbarBottom('Headline deleted successfully',"bottom","center", 3000);
         this.store.dispatch(loadSavedHeadlines())
       },
       error => {
-        this.snackbarService.showSnackbarBottom('Failed to save article', 5000);
+        this.snackbarService.showSnackbarBottom('Failed to save headline',"top","end", 3000);
         console.error('Error saving article:', error);
       }
     )
