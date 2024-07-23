@@ -24,7 +24,7 @@ export class HeadlinesService {
       .set('apiKey',environment.API_KEY)
     console.log("news headlines")
     return this.http.get(`${environment.apiEndPointHeadlines}`, { params });
-    // return this.http.get<Sources>("http://localhost:3000/headLines")
+
   }
 
 

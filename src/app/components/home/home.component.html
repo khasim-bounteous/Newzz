@@ -12,7 +12,44 @@
     </div>
 </section>
 <hr>
-<section class="py-10 md:py-20 px-5 md:px-20 headlines-con">
+
+<section class="pt-10 md:pt-20 flex justify-center items-center px-5 md:px-20 articles-con">
+    <div class="w-1/2">
+        <h1 class="text-center text-4xl md:text-3xl text-white mb-10 md:mb-10">Source Headlines</h1>
+        <ng-container *ngIf="headlines$ | async as articles">
+            <div *ngIf="articles.articles.length > 0; else noArticles">
+                <div class="w-full  flex justify-center">
+                    <swiper-container class="h-64 w-96" effect="cards" grab-cursor="true">
+                        <swiper-slide *ngFor="let article of articles.articles.slice(0,5)">
+                            <img src="{{article.urlToImage}}" alt="">
+                        </swiper-slide>
+                    </swiper-container>
+                </div>
+            </div>
+            <ng-template #noArticles>
+                <p>No saved articles.</p>
+            </ng-template>
+        </ng-container>
+    </div>
+    <div class="w-1/2">
+        <h1 class="text-center text-4xl md:text-3xl text-white mb-10 md:mb-10">World Headlines</h1>
+        <ng-container *ngIf="headlines$ | async as articles">
+            <div *ngIf="articles.articles.length > 0; else noArticles">
+                <div class="w-full  flex justify-center">
+                    <swiper-container class="h-64 w-96" effect="cards" grab-cursor="true">
+                        <swiper-slide *ngFor="let article of articles.articles.slice(5,10)">
+                            <img src="{{article.urlToImage}}" alt="">
+                        </swiper-slide>
+                    </swiper-container>
+                </div>
+            </div>
+            <ng-template #noArticles>
+                <p>No saved articles.</p>
+            </ng-template>
+        </ng-container>
+    </div>
+</section>
+<section class="md:py-20 px-5 md:px-20 headlines-con">
     <h1 class="text-center text-3xl md:text-4xl text-white mb-6 md:mb-10">Current Headlines</h1>
     <ng-container *ngIf="headlines$ | async as headines">
         <div *ngIf="headines.articles.length > 0; else noArticles">
@@ -30,13 +67,51 @@
       </ng-container>
 </section>
 <hr>
-<section class="py-10 md:py-20 px-5 md:px-20 articles-con">
+<section class="pt-10 md:pt-20 flex flex-col md:flex-row justify-center items-center px-5 md:px-20 articles-con">
+    <div class="w-full md:w-1/2 mb-6 md:mb-0">
+        <h1 class="text-center text-4xl md:text-3xl text-white mb-10 md:mb-10">Source Headlines</h1>
+        <ng-container *ngIf="articles$ | async as articles">
+            <div *ngIf="articles.articles.length > 0; else noArticles">
+                <div class="w-full flex justify-center">
+                    <swiper-container class="h-96 w-96" effect="cards" grab-cursor="true">
+                        <swiper-slide *ngFor="let article of articles.articles.slice(10,15)">
+                            <img src="{{article.urlToImage}}" alt="">
+                        </swiper-slide>
+                    </swiper-container>
+                </div>
+            </div>
+            <ng-template #noArticles>
+                <p>No saved articles.</p>
+            </ng-template>
+        </ng-container>
+    </div>
+    <div class="w-full md:w-1/2">
+        <h1 class="text-center text-4xl md:text-3xl text-white mb-10 md:mb-10">World Headlines</h1>
+        <ng-container *ngIf="articles$ | async as articles">
+            <div *ngIf="articles.articles.length > 0; else noArticles">
+                <div class="w-full flex justify-center">
+                    <swiper-container class="h-96 w-96" effect="cards" grab-cursor="true">
+                        <swiper-slide *ngFor="let article of articles.articles.slice(5,10)">
+                            <img src="{{article.urlToImage}}" alt="">
+                        </swiper-slide>
+                    </swiper-container>
+                </div>
+            </div>
+            <ng-template #noArticles>
+                <p>No saved articles.</p>
+            </ng-template>
+        </ng-container>
+    </div>
+</section>
+
+
+<section class="md:py-20 px-5 md:px-20 articles-con">
     <h1 class="text-center text-4xl md:text-5xl text-white mb-6 md:mb-10">Articles</h1>
     <ng-container *ngIf="articles$ | async as articles">
         <div *ngIf="articles.articles.length > 0; else noArticles">
             <div class="container mx-auto p-4">
                 <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-                    <div *ngFor="let article of articles.articles.slice(0,4)" class="home-article-card overflow-hidden">
+                    <div *ngFor="let article of articles.articles.slice(1,5)" class="home-article-card overflow-hidden">
                         <app-article-card [article]="article" [save]="true"></app-article-card>
                     </div>
                 </div>

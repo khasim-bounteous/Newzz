@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { Articles, HeadLines } from '../../shared/store/news/News.model';
+import { Articles, HeadLines, SourceHeadlines } from '../../shared/store/news/News.model';
 import { Observable } from 'rxjs';
-import { getArticles, getHeadlines } from '../../shared/store/news/News.selector';
+import { getArticles, getHeadlines, getSourceHeadlines } from '../../shared/store/news/News.selector';
+import { NewzServiceService } from '../../services/newz-service.service';
 
 @Component({
   selector: 'app-home',
@@ -11,11 +12,14 @@ import { getArticles, getHeadlines } from '../../shared/store/news/News.selector
 })
 export class HomeComponent implements OnInit{
 
-  headlines$: Observable<HeadLines>;
+  headlines$: Observable<SourceHeadlines>;
   articles$: Observable<Articles>;
   
-  constructor(private store: Store<{headlines:HeadLines,articles:Articles}>) {
-    this.headlines$ = this.store.select(getHeadlines);
+
+  constructor(
+    private store: Store<{headlines:SourceHeadlines,articles:Articles}>,
+  ) {
+    this.headlines$ = this.store.select(getSourceHeadlines);
     this.articles$ = this.store.select(getArticles);
   }
   

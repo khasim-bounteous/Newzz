@@ -17,7 +17,7 @@ export class IndexComponent implements OnInit {
   ngOnInit(): void { 
     console.log("indexxxxxxxxxxx")
     this.store.dispatch(loadHeadlines({country:"in",category:"general",pageIndex: 0,pageSize: 20}));
-    this.store.dispatch(loadArticles({query:'cricket' as string,sortBy: 'popularity',language: 'en',domains:'',pageSize:20,pageIndex:0}));
+    this.store.dispatch(loadArticles({query:'india' as string,sortBy: 'popularity',language: 'en',domains:'',pageSize:20,pageIndex:0}));
     this.store.dispatch(loadSources());
     this.store.dispatch(loadSourceHeadlines({ sources: ["bbc-news","abc-news"],pageSize:20,pageIndex:0 }));
     this.store.dispatch(loadSavedHeadlines())

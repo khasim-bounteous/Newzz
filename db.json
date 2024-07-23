@@ -619,20 +619,6 @@
       "content": "By Dearbail Jordan, BBC News\r\nAfghans have been celebrating their country's surprise cricketing victory over Australia in the T-20 World Cup under way in the US and West Indies.\r\nFootage from the cit… [+2774 chars]"
     },
     {
-      "id": "591b",
-      "source": {
-        "id": null,
-        "name": "BBC News"
-      },
-      "author": null,
-      "title": "'There were no signs my brother had a problem before he died'",
-      "description": "Mural campaign highlights that12 people under 35 die from cardiac arrest each week in the UK.",
-      "url": "https://www.bbc.com/news/articles/c199y0rlkpyo",
-      "urlToImage": "https://ichef.bbci.co.uk/news/1024/branded_news/b042/live/af5c2ad0-2c9f-11ef-a044-9d4367d5b599.jpg",
-      "publishedAt": "2024-06-17T14:05:48Z",
-      "content": "By Mallory Moench, BBC News\r\nThere were no signs that he had a problem. Nothing that could have predicted it.\r\nThat is what Olympic gymnast Ellie Downie told BBC Breakfast about her 24-year-old broth… [+4263 chars]"
-    },
-    {
       "id": "99ab",
       "source": {
         "id": "bbc-news",
@@ -661,6 +647,48 @@
       "urlToImage": "https://www.livelaw.in/h-upload/2024/07/15/549830-750x450544144-neet-ug-2024-sc.webp",
       "publishedAt": "2024-07-15T09:14:14Z",
       "content": "The Supreme Court today (July 15) issued notice in the transfer petitions filed by the National Testing Agency (NTA) concerning NEET-UG 2024 cases pending before the Rajasthan High Court\r\nBefore the … [+4460 chars]"
+    },
+    {
+      "id": "66af",
+      "source": {
+        "id": "google-news",
+        "name": "Google News"
+      },
+      "author": "NDTV Sports",
+      "title": "India vs Sri Lanka Squad Announcement LIVE Updates: Gautam Gambhir Backing Suryakumar Yadav For T20I Captaincy? Report Says... - NDTV Sports",
+      "description": null,
+      "url": "https://news.google.com/rss/articles/CBMiWmh0dHBzOi8vc3BvcnRzLm5kdHYuY29tL2NyaWNrZXQvaW5kaWEtdnMtc3JpLWxhbmthLXNxdWFkLWFubm91bmNlbWVudC1saXZlLXVwZGF0ZXMtNjEzMDEwM9IBYGh0dHBzOi8vc3BvcnRzLm5kdHYuY29tL2NyaWNrZXQvaW5kaWEtdnMtc3JpLWxhbmthLXNxdWFkLWFubm91bmNlbWVudC1saXZlLXVwZGF0ZXMtNjEzMDEwMy9hbXAvMQ?oc=5",
+      "urlToImage": null,
+      "publishedAt": "2024-07-18T06:21:37Z",
+      "content": null
+    },
+    {
+      "id": "3129",
+      "source": {
+        "id": "google-news",
+        "name": "Google News"
+      },
+      "author": "Investing.com India",
+      "title": "VIPER moon rover cancelled over budget concerns: NASA By IANS - Investing.com India",
+      "description": null,
+      "url": "https://news.google.com/rss/articles/CBMiZWh0dHBzOi8vaW4uaW52ZXN0aW5nLmNvbS9uZXdzL3dvcmxkLW5ld3MvdmlwZXItbW9vbi1yb3Zlci1jYW5jZWxsZWQtb3Zlci1idWRnZXQtY29uY2VybnMtbmFzYS00MzE3Mzcw0gEA?oc=5",
+      "urlToImage": null,
+      "publishedAt": "2024-07-18T06:23:33Z",
+      "content": null
+    },
+    {
+      "id": "b694",
+      "source": {
+        "id": "bbc-news",
+        "name": "BBC News"
+      },
+      "author": "BBC News",
+      "title": "France fire: Children among 7 dead in suspected arson attack in Nice",
+      "description": "Seven people have died, including three children, in a fire that broke out in the early hours of Thursday.",
+      "url": "https://www.bbc.co.uk/news/articles/c51yjpmk70go",
+      "urlToImage": "https://ichef.bbci.co.uk/news/1024/branded_news/794a/live/0c86c560-44d0-11ef-aa4b-fb5e290d435f.jpg",
+      "publishedAt": "2024-07-18T09:22:14.7726698Z",
+      "content": "The fire broke out on the seventh floor. Nice prosecutor Damien Martinelli told journalists that in light of initial findings, \"I have opened an inquiry into acts of arson as the cause of death.\"\r\nLo… [+958 chars]"
     }
   ]
 }
